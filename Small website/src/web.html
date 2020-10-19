@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="jquery-3.5.1.min.js"></script>
+
+
+    <script>
+
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+        var url = "https://api.github.com/users/" + $("#test").val();
+            $("#test2").text(url);
+            $.get(url, function(data){
+
+            $("#name").text(data.login)
+            $("#description").text(data.bio)
+             $("#followers").text(data.followers)
+                }, "json" );
+        });
+    });
+    </script>
+
+
+</head>
+
+
+<body>
+
+<div class="jumbotron" >
+    <h1 class="text-center">Github web</h1>.
+    <p class="text-center">Pagina web prueba DSA </p>.
+</div>
+
+<p id="test1">La finalidad de esta pagina es saber algunos datos de un usuario introducido.</p>
+
+<p>Username: <input type="text" id="test" value=""></p>
+
+<p id="test2"></p>
+
+<button id="btn1" > Consultar </button>
+
+<div class="container">
+    <h2>Tabla resumen usuario</h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Numero de followers</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td id ="name">John</td>
+            <td id ="description">Doe</td>
+            <td id ="followers">john@example.com</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
